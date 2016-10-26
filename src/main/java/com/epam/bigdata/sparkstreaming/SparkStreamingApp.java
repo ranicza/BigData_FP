@@ -75,9 +75,9 @@ public class SparkStreamingApp {
             
             LogsEntity logsEntity = new LogsEntity(tuple2._2().toString());
             logsEntity.setGeoPoint1(broadcastVar.value().get(logsEntity.getCity()));
-            logsEntity.setDevice(replaceSpace(device));
-            logsEntity.setOsName(replaceSpace(osName));
-            logsEntity.setUaFamily(replaceSpace(uaFamily));
+            logsEntity.setDevice(device);
+            logsEntity.setOsName(osName);
+            logsEntity.setUaFamily(uaFamily);
             
             JSONObject jsonObject = new JSONObject(logsEntity);
             jsonObject.append("@sended_at",new java.text.SimpleDateFormat(formatter).format(new Date()));
@@ -97,8 +97,8 @@ public class SparkStreamingApp {
         jssc.start();
         jssc.awaitTermination();
     }
-    
-    private static String replaceSpace(String str) {
-    	return str.replaceAll("\\s","_");
-    }
+//    
+//    private static String replaceSpace(String str) {
+//    	return str.replaceAll("\\s","_");
+//    }
 }
