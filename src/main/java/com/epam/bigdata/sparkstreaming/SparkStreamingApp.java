@@ -29,6 +29,7 @@ public class SparkStreamingApp {
 
     private static final String SPLIT = "\\t";
     private static ObjectMapper mapper = new ObjectMapper();
+    private static final String formatter = "yyyy-MM-dd'T'HH:mm:ssX";
 
     public static void main(String[] args) throws Exception {
 
@@ -79,7 +80,7 @@ public class SparkStreamingApp {
             logsEntity.setUaFamily(uaFamily);
             
             JSONObject jsonObject = new JSONObject(logsEntity);
-            jsonObject.append("@sended_at",new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX").format(new Date()));
+            jsonObject.append("@sended_at",new java.text.SimpleDateFormat(formatter).format(new Date()));
             String json1 = jsonObject.toString();
             //String json1  = mapper.writeValueAsString(logsEntity);
             System.out.println("####1");
