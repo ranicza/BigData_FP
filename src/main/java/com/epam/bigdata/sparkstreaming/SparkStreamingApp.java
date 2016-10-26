@@ -3,6 +3,9 @@ package com.epam.bigdata.sparkstreaming;
 import com.epam.bigdata.sparkstreaming.entity.CityInfoEntity;
 import com.epam.bigdata.sparkstreaming.entity.LogsEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import eu.bitwalker.useragentutils.UserAgent;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.spark.SparkConf;
@@ -63,9 +66,17 @@ public class SparkStreamingApp {
 
         JavaPairReceiverInputDStream<String, String> messages = KafkaUtils.createStream(jssc, zkQuorum, group, topicMap);
 
-        JavaDStream<String> lines = messages.map(tuple2 -> {
+        JavaDStream<String> lines = messages.map(tuple2 -> {         
+            UserAgent ua = UserAgent.parseUserAgentString(tuple2._2().toString());
+			String device =  ua.getBrowser() != null ? ua.getOperatingSystem().getDeviceType().getName() : null;
+			String osName = ua.getBrowser() != null ? ua.getOperatingSystem().getName() : null;
+            String uaFamily = ua.getBrowser() != null ? ua.getBrowser().getGroup().getName() : null;
+            
             LogsEntity logsEntity = new LogsEntity(tuple2._2().toString());
             logsEntity.setGeoPoint1(broadcastVar.value().get(logsEntity.getCity()));
+            logsEntity.setDevice(device);
+            logsEntity.setOsName(osName);
+            logsEntity.setUaFamily(uaFamily);
             
             JSONObject jsonObject = new JSONObject(logsEntity);
             jsonObject.append("@sended_at",new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX").format(new Date()));

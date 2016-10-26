@@ -27,6 +27,9 @@ public class LogsEntity {
     private int advertiserId;
     private long  userTags;
     private int streamId;
+    private String device;
+    private String osName;
+    private String uaFamily;
 
     private CityInfoEntity geoPoint1;
 
@@ -243,4 +246,29 @@ public class LogsEntity {
         this.geoPoint1 = geoPoint1;
     }
 
+	public String getDevice() {
+		return device;
+	}
+
+	public void setDevice(String device) {
+		this.device = device;
+	}
+
+	public String getOsName() {
+		return osName;
+	}
+
+	public void setOsName(String osName) {
+		this.osName = osName;
+	}
+
+	public String getUaFamily() {
+		return uaFamily;
+	}
+
+	public void setUaFamily(String uaFamily) {
+		this.uaFamily = uaFamily;
+	}
+
+    
 }
