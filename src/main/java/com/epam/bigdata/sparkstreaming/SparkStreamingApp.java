@@ -90,7 +90,7 @@ public class SparkStreamingApp {
         });
 
         lines.foreachRDD(stringJavaRDD ->
-                JavaEsSpark.saveJsonToEs(stringJavaRDD, "logs1/logs"));
+                JavaEsSpark.saveJsonToEs(stringJavaRDD, "logs01/logs"));
         
         lines.print();
 
