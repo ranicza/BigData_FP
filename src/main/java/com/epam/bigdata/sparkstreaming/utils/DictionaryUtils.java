@@ -1,7 +1,7 @@
 package com.epam.bigdata.sparkstreaming.utils;
 
 
-import com.epam.bigdata.conf.AppProperties;
+import com.epam.bigdata.sparkstreaming.conf.AppProperties;
 import com.epam.bigdata.sparkstreaming.model.CityInfo;
 
 import org.apache.hadoop.conf.Configuration;

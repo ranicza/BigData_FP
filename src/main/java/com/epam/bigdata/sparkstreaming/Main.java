@@ -1,7 +1,7 @@
 package com.epam.bigdata.sparkstreaming;
 
 
-import com.epam.bigdata.conf.AppProperties;
+import com.epam.bigdata.sparkstreaming.conf.AppProperties;
 import com.epam.bigdata.sparkstreaming.hbase.HbaseProcessor;
 import com.epam.bigdata.sparkstreaming.kafka.KafkaProcessor;
 import com.epam.bigdata.sparkstreaming.model.CityInfo;
