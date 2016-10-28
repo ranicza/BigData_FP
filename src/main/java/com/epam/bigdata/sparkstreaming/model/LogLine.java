@@ -1,4 +1,4 @@
-package com.epam.bigdata.model;
+package com.epam.bigdata.sparkstreaming.model;
 
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;

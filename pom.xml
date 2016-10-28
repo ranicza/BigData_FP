@@ -149,14 +149,15 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
-            <plugin>
+
+		<plugin>
                 <groupId>org.skife.maven</groupId>
                 <artifactId>really-executable-jar-maven-plugin</artifactId>
                 <version>1.1.0</version>
                 <configuration>
                     <programFile>bigdata-fp</programFile>
                 </configuration>
-<!-- 
+
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -165,17 +166,11 @@
                         </goals>
                     </execution>
                 </executions>
-                -->
             </plugin>
         </plugins>
-        
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>application.yaml</exclude>
-
-                </excludes>
             </resource>
         </resources>
     </build>

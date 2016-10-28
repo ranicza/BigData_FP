@@ -1,0 +1,22 @@
+spark:
+  appName: SparkStreamingLogAggregationApp
+  duration: 2000
+kafkaConnection:
+  group: test
+  topics:
+    logs-topic: 1
+  zookeeper: sandbox.hortonworks.com:2181
+hbase:
+  tableName: logs_data
+  columnFamily: data
+  zookeeperClientPort: 2181
+  zookeeperQuorum: sandbox.hortonworks.com
+  zookeeperParent: /hbase-unsecure
+hadoop:
+  fileSystem: hdfs://sandbox.hortonworks.com:8020/
+  cityDictionary: hdfs://sandbox.hortonworks.com:8020/tmp/admin/cities/city.us.txt
+elasticSearch:
+  index: logs02
+  type: logs
+
+

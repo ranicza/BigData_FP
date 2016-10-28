@@ -1,4 +1,4 @@
-package com.epam.bigdata.conf;
+package com.epam.bigdata.streaming.conf;
 
 
 import org.apache.spark.SparkConf;

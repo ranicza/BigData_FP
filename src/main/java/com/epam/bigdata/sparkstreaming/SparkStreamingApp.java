@@ -1,7 +1,7 @@
 package com.epam.bigdata.sparkstreaming;
 
-import com.epam.bigdata.model.CityInfoEntity;
-import com.epam.bigdata.model.LogsEntity;
+import com.epam.bigdata.sparkstreaming.model.CityInfoEntity;
+import com.epam.bigdata.sparkstreaming.model.LogsEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import eu.bitwalker.useragentutils.UserAgent;

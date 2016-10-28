@@ -1,4 +1,4 @@
-package com.epam.bigdata.model;
+package com.epam.bigdata.sparkstreaming.model;
 
 import org.elasticsearch.common.geo.GeoPoint;
 import scala.collection.immutable.Map;

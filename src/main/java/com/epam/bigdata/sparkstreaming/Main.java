@@ -1,13 +1,14 @@
 package com.epam.bigdata.sparkstreaming;
 
 
-import com.epam.bigdata.conf.AppProperties;
-import com.epam.bigdata.hbase.HbaseProcessor;
-import com.epam.bigdata.kafka.KafkaProcessor;
-import com.epam.bigdata.model.CityInfo;
-import com.epam.bigdata.model.ESModel;
-import com.epam.bigdata.model.LogLine;
-import com.epam.bigdata.utils.DictionaryUtils;
+import com.epam.bigdata.sparkstreaming.hbase.HbaseProcessor;
+import com.epam.bigdata.sparkstreaming.kafka.KafkaProcessor;
+import com.epam.bigdata.sparkstreaming.model.CityInfo;
+import com.epam.bigdata.sparkstreaming.model.ESModel;
+import com.epam.bigdata.sparkstreaming.model.LogLine;
+import com.epam.bigdata.sparkstreaming.utils.DictionaryUtils;
+import com.epam.bigdata.streaming.conf.AppProperties;
+
 import org.apache.spark.broadcast.Broadcast;
 import org.apache.spark.streaming.api.java.JavaDStream;
 import org.apache.spark.streaming.api.java.JavaPairReceiverInputDStream;
