@@ -14,7 +14,7 @@ hbase:
   zookeeperParent: /hbase-unsecure
 hadoop:
   fileSystem: hdfs://sandbox.hortonworks.com:8020/
-  cityDictionary: hdfs://sandbox.hortonworks.com:8020/tmp/admin/cities/city.us.txt
+  cityDictionary: hdfs://sandbox.hortonworks.com:8020/tmp/admin/cities/city.txt
 elasticSearch:
   index: logs02
   type: logs
