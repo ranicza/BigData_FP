@@ -1,4 +1,4 @@
-package com.epam.bigdata.streaming.conf;
+package com.epam.bigdata.conf;
 
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
