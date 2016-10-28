@@ -1,4 +1,4 @@
-package com.epam.bigdata.sparkstreaming.entity;
+package com.epam.bigdata.model;
 
 public class CityInfoEntity {
 
