@@ -59,6 +59,7 @@ public class Main {
             .map(ESModel::toStringifyJson)
             .foreachRDD(jsonRdd -> {
                 JavaEsSpark.saveJsonToEs(jsonRdd, confStr);
+                System.out.println(jsonRdd);
             });
 
 
