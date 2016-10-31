@@ -32,7 +32,7 @@ public class LogLine implements Serializable{
 
 
     public static Put convertToPut(LogLine line, String columnFamily){
-        byte[] callFamilyBytes = Bytes.toBytes("data");
+        byte[] callFamilyBytes = Bytes.toBytes("LG");
         String rowKey = line.iPinyouId + "_" + line.timestamp;
         Put put = new Put(Bytes.toBytes(rowKey));
 
