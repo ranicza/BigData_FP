@@ -4,7 +4,7 @@ spark:
 kafkaConnection:
   group: test
   topics:
-    logs-topic: 1
+    logstopic: 1
   zookeeper: sandbox.hortonworks.com:2181
 hbase:
   tableName: LOGS_I
