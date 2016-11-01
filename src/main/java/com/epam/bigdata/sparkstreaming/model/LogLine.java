@@ -3,8 +3,8 @@ package com.epam.bigdata.sparkstreaming.model;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
 
-import com.epam.bigdata2016fp.sparkstreaming.model.CityInfo;
-import com.epam.bigdata2016fp.sparkstreaming.model.LogLine;
+import com.epam.bigdata.sparkstreaming.model.CityInfo;
+import com.epam.bigdata.sparkstreaming.model.LogLine;
 
 import java.io.Serializable;
 
