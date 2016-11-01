@@ -21,7 +21,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.apache.spark.mllib.classification.LogisticRegressionModel;
 import org.apache.spark.mllib.linalg.Vectors;
-import org.apache.spark.mllib.tree.model.DecisionTreeModel;
 
 import java.util.Map;
 
