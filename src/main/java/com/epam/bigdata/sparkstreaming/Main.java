@@ -42,11 +42,12 @@ public class Main {
         Map<String, String> dict2 = DictionaryUtils.tagsDictionry(props.getHadoop());
         Broadcast<Map<String, String>> brTagsDict = jsc.sparkContext().broadcast(dict2);
 
-        LogisticRegressionModel model1 = LogisticRegressionModel.load(jsc.sparkContext().sc(), "tmp/fp/ml");
+      //  LogisticRegressionModel model1 = LogisticRegressionModel.load(jsc.sparkContext().sc(), "tmp/fp/ml");
 
         JavaPairReceiverInputDStream<String, String> logs = KafkaProcessor.getStream(jsc, props.getKafkaConnection());
 
         //save to ELASTIC SEARCH
+        /*
         String index = props.getElasticSearch().getIndex();
         String type = props.getElasticSearch().getType();
         String confStr = index + "/" + type;
@@ -69,7 +70,7 @@ public class Main {
         })
                 .mapPartitions(HbaseProcessor::getUserCategory)
                 .map(ESModel::toStringifyJson).foreachRDD(jsonRdd -> JavaEsSpark.saveJsonToEs(jsonRdd, confStr));
-
+*/
 
         //save to HBASE
         JavaDStream<LogLine> logLineStream = logs.map(keyValue -> LogLine.parseLogLine(keyValue._2()));
