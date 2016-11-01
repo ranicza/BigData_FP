@@ -18,6 +18,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.apache.spark.mllib.classification.LogisticRegressionModel;
+import org.apache.spark.mllib.linalg.Vectors;
+import org.apache.spark.mllib.tree.model.DecisionTreeModel;
 
 import java.util.Map;
 
@@ -33,6 +36,11 @@ public class Main {
         JavaStreamingContext jsc = ctx.getBean(JavaStreamingContext.class);
         Map<String, CityInfo> dict = DictionaryUtils.citiesDictionry(props.getHadoop());
         Broadcast<Map<String, CityInfo>> brCitiesDict = jsc.sparkContext().broadcast(dict);
+        
+        Map<String, String> dict2 = DictionaryUtils.tagsDictionry(props.getHadoop());
+        Broadcast<Map<String, String>> brTagsDict = jsc.sparkContext().broadcast(dict2);
+        
+        LogisticRegressionModel model1 = LogisticRegressionModel.load(jsc.sparkContext().sc(), "tmp/fp/ml");
 
         JavaPairReceiverInputDStream<String, String> logs =
             KafkaProcessor.getStream(jsc, props.getKafkaConnection());
@@ -66,5 +74,7 @@ public class Main {
         jsc.start();
         jsc.awaitTermination();
     }
+    
+
 
 }

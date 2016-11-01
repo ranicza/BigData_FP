@@ -24,6 +24,7 @@ public class DictionaryUtils {
             FileSystem fs = FileSystem.get(new URI(hadoopConf.getFileSystem()), new Configuration());
             br = new BufferedReader(new InputStreamReader(fs.open(new Path(hadoopConf.getCityDictionary()))));
             return br.lines()
+            	.skip(1)
                 .collect(
                     Collectors.toMap(
                         line -> line.split("\\t")[0],  // key -id
@@ -42,8 +43,27 @@ public class DictionaryUtils {
         }
     }
 
-    public static void tagsDictionary() {
+    public static Map<String, String> tagsDictionry(AppProperties.Hadoop hadoopConf) {
+        BufferedReader br = null;
+        try {
+            FileSystem fs = FileSystem.get(new URI(hadoopConf.getFileSystem()), new Configuration());
+            br = new BufferedReader(new InputStreamReader(fs.open(new Path(hadoopConf.getTagDictionary()))));
+            return br.lines()
+                    .skip(1)
+                    .collect(
+                            Collectors.toMap(
+                                    line -> line.split("\\t")[0], line -> line.split("\\t")[1])
+                    );
 
+        } catch (URISyntaxException | IOException ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            try {
+                if (br != null) br.close();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 
 }
