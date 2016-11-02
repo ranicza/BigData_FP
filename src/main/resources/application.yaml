@@ -4,10 +4,10 @@ spark:
 kafkaConnection:
   group: test
   topics:
-    logs-t: 1
+    logs-topic: 1
   zookeeper: sandbox.hortonworks.com:2181
 hbase:
-  tableName: LOGS_I
+  tableName: LOGS_T
   columnFamily: LG
   zookeeperClientPort: 2181
   zookeeperQuorum: sandbox.hortonworks.com
